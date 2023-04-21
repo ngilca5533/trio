@@ -1,0 +1,41 @@
+<body>
+    <div class="hero-content">
+    <div class="hero-content-overlay">
+            <div class="container">
+              <div class="row">
+                    <div class="col-12">
+                        <div class="hero-content-wrap flex flex-column justify-content-center align-items-start">
+                            
+                            <header class="entry-header">
+                                    <h4>Welcome to {{user.firstname}} {{user.lastname}}'s profile</h4>
+                                    <h1>Editing <em>{{ user.username }} information</h1>
+                            </header><!-- .entry-header -->
+
+                            <div class="entry-content">
+                            
+                            {{#if errorMsg}}
+                                <h4>{{errorMsg}}</h4>
+                            {{else}}
+                                <h4>Please edit below</h4>
+                            {{/if}}
+
+                            <form method="POST" action="/Profile/Edit">
+                                <input type="hidden" name="username" value="{{user.username}}" />
+                                <label class="fixedlabel">User Name:</label>{{user.username}}<br />
+                                <label class="fixedlabel">First Name:</label>
+                                <input type="text" name="firstName" value="{{user.firstname}}" maxlength = "16" pattern="[A-Za-z].{2,16}" title="Please provide real name"/><br />
+                                <label class="fixedlabel">Last Name:</label>
+                                <input type="text" name="lastName" value="{{user.lastname}}" maxlength = "16" pattern="[A-Za-z].{2,16}" title="Please provide real name"/><br />
+                                <label class="fixedlabel">E-mail:</label>
+                                <input type="text" name="email" value="{{user.email}}"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please provide a proper email address" maxlength = "20"/><br />
+                                <label class="fixedlabel"></label><button type="submit" name="Submit" class="flex justify-content-center align-items-center">Submit</button>
+                            </form>
+
+                            </div><!-- .entry-content -->
+                        </div><!-- .hero-content-wrap -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+  </div><!-- .container -->
+  </div><!-- .hero-content-hero-content-overlay -->
+  </div><!-- .hero-content -->
+</body>

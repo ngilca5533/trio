@@ -1,0 +1,35 @@
+<body>
+  <div class="hero-content">
+    <div class="hero-content-overlay">
+            <div class="container">
+              <div class="row">
+                    <div class="col-12">
+                        <div class="hero-content-wrap flex flex-column justify-content-center align-items-start">
+                            <div class="entry-content">
+                                {{#if errorMsg}}
+                                    <h4>{{errorMsg}}</h4>
+                                {{else}}
+                                    <h4>Please Register below</h4>
+                                {{/if}}
+                                <form method="post" action="/register">
+                                    <label class="form-label">User Name:</label>
+                                    <input type="text" name="username" maxlength = "16"/><br />
+                                    <label class="form-label">Password:</label>
+                                    <input type="password" name="password" maxlength = "16"/><br />
+                                    <label class="form-label">First Name:</label>
+                                    <input type="text" name="fname" maxlength = "16" pattern="[A-Za-z].{2,16}" title="Please provide real name" /><br />
+                                    <label class="form-label">Last Name:</label>
+                                    <input type="text" name="lname" maxlength = "16" pattern="[A-Za-z].{2,16}" title="Please provide real name"/><br />
+                                    <label class="form-label">E-mail:</label>
+                                    <input type="email" name="email" placeholder="user@example.com"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please provide a proper email address" maxlength = "20"/><br />
+                                    <label class="form-label"></label>
+                                    <button type="submit" class="flex justify-content-center align-items-center" name="Submit" >Register</button>
+                                </form>
+                            </div><!-- .entry-content -->
+                        </div><!-- .hero-content-wrap -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+  </div><!-- .container -->
+  </div><!-- .hero-content-hero-content-overlay -->
+  </div><!-- .hero-content -->
+</body>

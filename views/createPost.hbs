@@ -1,0 +1,43 @@
+<body>
+    <div class="hero-content">
+        <div class="hero-content-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                       <div class="hero-content-wrap flex flex-column justify-content-center align-items-start">
+
+                             <header class="entry-header">
+                                <h2 class="entry-title">Create a post for the {{industry}} community!</h2>
+                            </header><!-- .entry-header -->
+
+                            <div class="entry-content">
+                                <form method="post" action="/industry/addpost">
+                                    <input type="hidden" name="user_name" value="{{user.username}}"/>
+                                    <input type="hidden" name="category_name" value="{{industry}}"/>
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Title:</label>
+                                                    <input class="form-control" name="title" type="text" maxlength = "20" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Description:</label>
+                                                    <input class="form-control" name="description" type="text" maxlength = "100"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                        <input type="submit" class="btn btn-primary float-right" value="Create Post" /><br /><br /><br />
+                                </form>
+                            </div><!-- .entry-content -->
+
+                       </div><!-- .hero-content-wrap -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .hero-content-hero-content-overlay -->
+    </div><!-- .hero-content -->        
+</body>

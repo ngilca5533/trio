@@ -1,0 +1,76 @@
+<body>
+    <div class="hero-content">
+        <div class="hero-content-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="hero-content-wrap flex flex-column justify-content-center align-items-start">
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <header class="heading flex justify-content-between align-items-center">
+                                                <h2 class="entry-title">Latest News & Events</h2>
+                                            </header><!-- .heading -->
+                                        </div><!-- .col -->
+
+                                        <div class="col-12 col-lg-6">
+                                            <div class="featured-event-content">
+                                                <header class="entry-header flex flex-wrap align-items-center">
+                                                    <h2 class="entry-title">{{post.title}}</h2>
+                                                    <div class="entry-content">
+                                                        <p>{{post.description}}</p>
+                                                    </div><!-- .entry-content -->
+
+                                                    <div class="post-author"><h2>{{post.user_name}}</h2></div>
+                                                    <div class="event-location"><i class="fa fa-map-marker"></i>40 Baria
+                                                        Sreet 133/2 NewYork City, US</div>
+                                                    <div class="event-duration"><i class="fa fa-calendar"></i>10 Dec -
+                                                        12 dec</div>
+
+                                                    {{#if showDeleteButton}}
+                                                    <a href="/industry/{{industry}}/{{post._id}}/delete"
+                                                        class="btn btn-success float-right">Delete Post</a>
+                                                    {{/if}}
+
+                                                </header><!-- .entry-header -->
+                                                <div class="comments-section">
+                                                    {{#each post.comments}}
+                                                    <div class="comment">
+                                                        <p>{{this.comment}}</p>
+                                                        <div class="comment-details">
+                                                            <span class="comment-date">{{this.date}}</span>
+                                                            <span class="comment-user">{{this.user_name}}</span>
+
+                                                            {{#if (or (eq ../user.username user_name) ../user.isAdmin)}}
+                                                            <form method="POST"
+                                                                action="/delete-comment/{{../post._id}}/{{_id}}">
+                                                                <input type="submit" value="Delete">
+                                                            </form>
+                                                            {{/if}}
+
+                                                        </div>
+                                                    </div>
+                                                    {{/each}}
+                                                </div>                                                <!-- add a form to submit a new comment -->
+                                                <form action="/add-comment/{{post._id}}" method="POST">
+                                                    <div class="form-group">
+                                                        <label for="comment">Leave a comment:</label>
+                                                        <textarea class="form-control" id="comment" name="comment"
+                                                            rows="4" maxlength = "100"></textarea>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </form>
+                                            </div><!-- .comments-section -->
+                                        </div><!-- .col -->
+
+                                    </div><!-- .row -->
+                                </div><!-- .container -->
+
+                        </div><!-- .hero-content-wrap -->
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .hero-content-hero-content-overlay -->
+    </div><!-- .hero-content -->
+</body>
